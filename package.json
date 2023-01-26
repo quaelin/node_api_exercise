@@ -22,7 +22,9 @@
 	"license": "MIT",
 	"dependencies": {
 		"express": "^4.18.2",
-		"nodemon": "^2.0.20"
+		"lodash": "^4.17.21",
+		"nodemon": "^2.0.20",
+		"sql.js": "^1.8.0"
 	},
 	"devDependencies": {
 		"eslint": "^8.32.0",

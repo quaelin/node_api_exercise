@@ -3,13 +3,13 @@ const express = require('express');
 const config = require('./config.json');
 
 const app = express();
+app.set('json spaces', 4); // pretty-print JSON output from endpoints
 
-const routes = [
+[
     'health',
     'network',
     'petitions',
-];
-routes.forEach((route) => {
+].forEach((route) => {
     require(`./routes/${route}`)(app);
 })
 
