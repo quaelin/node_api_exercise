@@ -16,7 +16,7 @@
 		"db:create": "sqlite3 db/node_api_exercise.sqlite < db/schema.sql",
 		"db:populate": "sqlite3 db/node_api_exercise.sqlite < db/seeds.sql",
 		"pretest": "eslint .",
-		"start": "nodemon main.js",
+		"start": "nodemon server.js",
 		"test": "jest"
 	},
 	"license": "MIT",
