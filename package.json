@@ -24,7 +24,7 @@
 		"express": "^4.18.2",
 		"lodash": "^4.17.21",
 		"morgan": "^1.10.0",
-		"nodemon": "^2.0.20",
+		"nodemon": "^3.1.0",
 		"sql.js": "^1.8.0"
 	},
 	"devDependencies": {
