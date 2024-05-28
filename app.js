@@ -7,7 +7,6 @@ app.use(morgan('dev')); // Request logger
 
 [
     'health',
-    'network',
     'petitions',
 ].forEach((route) => {
     require(`./routes/${route}`)(app);
