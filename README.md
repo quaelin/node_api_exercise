@@ -10,6 +10,8 @@ The app was built using Node.js 18.  To get it running, do:
 
 ```sh
 $ npm ci
+$ npm run db:create
+$ npm run db:populate
 $ npm start
 ```
 
