@@ -20,6 +20,6 @@ jobs:
             - name: install dependencies
               run: npm install
             - name: create test database
-              run: npm run create:db:tests
+              run: npm run db:create:tests
             - name: run tests
               run: npm test
