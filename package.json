@@ -14,7 +14,7 @@
   },
   "scripts": {
     "db:create": "sqlite3 db/node_api_exercise.sqlite < db/schema.sql",
-    "db:create:tests": "sqlite3 db/node_api_exercise.sqlite < db/schema.sql",
+    "db:create:tests": "sqlite3 db/node_api_exercise_tests.sqlite < db/schema.sql",
     "db:populate": "sqlite3 db/node_api_exercise.sqlite < db/seeds.sql",
     "pretest": "eslint .",
     "start": "nodemon server.js",
