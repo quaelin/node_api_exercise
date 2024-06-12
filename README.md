@@ -1,3 +1,5 @@
+[![tests](https://github.com/quaelin/node_api_exercise/actions/workflows/tests.yml/badge.svg)](https://github.com/quaelin/node_api_exercise/actions/workflows/tests.yml)
+
 # Node.js API Exercise
 
 This repo provides a basic framework for a Node.js restful API for our live
