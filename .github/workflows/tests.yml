@@ -1,9 +1,6 @@
 name: tests
 
-on:
-    push:
-        branches:
-            - tdd-friendly
+on: push
 
 jobs:
     test:
