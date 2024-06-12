@@ -2,7 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 
 const app = express();
-app.dbfile = `${__dirname}/db/node_api_exercise.sqlite`;
 app.set('json spaces', 4); // pretty-print JSON output from endpoints
 app.use(morgan('dev')); // Request logger
 
