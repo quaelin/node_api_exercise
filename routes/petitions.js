@@ -1,7 +1,7 @@
 const jsonPromiseHandler = require('../lib/jsonPromiseHandler');
 const { runQuery, getConnection } = require('../lib/sql');
 
-async function getPetitions(app, req) {
+async function getPetitions(app) {
     return runQuery(
         await getConnection(app.dbfile),
         'SELECT * FROM petitions;'
