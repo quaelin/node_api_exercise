@@ -18,13 +18,13 @@ describe('/petitions', () => {
             db,
             `
       insert into petitions (starter_urn, title, body, created_at, updated_at)
-      values ('urn:changeorg:starter:1','Save our oceans','We need that','2020-01-01 00:00:00',DATE ('now', '-1 hour'))`
+      values ('urn:changeorg:starter:1','Save our oceans','We need that','2020-01-01 00:00:00','2024-01-01 00:00:00')`
         );
         await runQuery(
             db,
             `
       insert into petitions (starter_urn, title, body, created_at, updated_at)
-      values ('urn:changeorg:starter:2','Save our land','We need it','2020-01-01 00:00:00',DATE ('now', '-1 day'))`
+      values ('urn:changeorg:starter:2','Save our land','We need it','2020-01-01 00:00:00','2024-02-01 00:00:00')`
         );
         await commit(db);
         const response = await request(app).get('/petitions');
@@ -35,14 +35,14 @@ describe('/petitions', () => {
                 title: 'Save our oceans',
                 body: 'We need that',
                 created_at: '2020-01-01 00:00:00',
-                updated_at: '2024-06-12'
+                updated_at: '2024-01-01 00:00:00'
             },
             {
                 starter_urn: 'urn:changeorg:starter:2',
                 title: 'Save our land',
                 body: 'We need it',
                 created_at: '2020-01-01 00:00:00',
-                updated_at: '2024-06-11'
+                updated_at: '2024-02-01 00:00:00'
             }
         ]);
     });
