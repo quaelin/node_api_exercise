@@ -6,7 +6,7 @@ set up prior to the interview.
 
 ## Running locally
 
-The app was built using Node.js 18. To get it running, do:
+The app was built using Node.js 20.12.2
 
 ```sh
 $ npm ci
