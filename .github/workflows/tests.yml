@@ -19,5 +19,7 @@ jobs:
                   node-version-file: '.nvmrc'
             - name: install dependencies
               run: npm install
+            - name: create test database
+              run: npm run create:db:tests
             - name: run tests
               run: npm test
