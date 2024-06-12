@@ -1,8 +1,8 @@
 # Node.js API Exercise
 
 This repo provides a basic framework for a Node.js restful API for our live
-coding exercise. Be sure to have this code checked out locally and have
-Node/npm set up prior to the interview.
+coding exercise. Be sure to have this code checked out locally and have Node/npm
+set up prior to the interview.
 
 ## Overview
 

@@ -1,46 +1,48 @@
 {
-  "name": "node_api_exercise",
-  "version": "0.0.1",
-  "author": {
-    "name": "Chris Campbell",
-    "url": "https://github.com/quaelin"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/quaelin/node_api_exercise"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "scripts": {
-    "db:create": "sqlite3 db/node_api_exercise.sqlite < db/schema.sql",
-    "db:create:tests": "sqlite3 db/node_api_exercise_tests.sqlite < db/schema.sql",
-    "db:populate": "sqlite3 db/node_api_exercise.sqlite < db/seeds.sql",
-    "pretest": "eslint .",
-    "start": "nodemon server.js",
-    "test": "jest"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.18.2",
-    "lodash": "^4.17.21",
-    "morgan": "^1.10.0",
-    "nodemon": "^3.1.0",
-    "sql.js": "^1.8.0"
-  },
-  "devDependencies": {
-    "eslint": "^8.32.0",
-    "jest": "^29.4.1",
-    "supertest": "^6.3.3"
-  },
-  "eslintConfig": {
-    "env": {
-      "es6": true,
-      "node": true,
-      "jest": true
+    "name": "node_api_exercise",
+    "version": "0.0.1",
+    "author": {
+        "name": "Chris Campbell",
+        "url": "https://github.com/quaelin"
     },
-    "parserOptions": {
-      "ecmaVersion": 8
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/quaelin/node_api_exercise"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "scripts": {
+        "db:create": "sqlite3 db/node_api_exercise.sqlite < db/schema.sql",
+        "db:create:tests": "sqlite3 db/node_api_exercise_tests.sqlite < db/schema.sql",
+        "db:populate": "sqlite3 db/node_api_exercise.sqlite < db/seeds.sql",
+        "pretest": "npm run prettier && eslint .",
+        "prettier": "npx prettier --write .",
+        "start": "nodemon server.js",
+        "test": "jest"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.18.2",
+        "lodash": "^4.17.21",
+        "morgan": "^1.10.0",
+        "nodemon": "^3.1.0",
+        "sql.js": "^1.8.0"
+    },
+    "devDependencies": {
+        "eslint": "^8.32.0",
+        "jest": "^29.4.1",
+        "prettier": "^3.3.2",
+        "supertest": "^6.3.3"
+    },
+    "eslintConfig": {
+        "env": {
+            "es6": true,
+            "node": true,
+            "jest": true
+        },
+        "parserOptions": {
+            "ecmaVersion": 8
+        }
     }
-  }
 }
