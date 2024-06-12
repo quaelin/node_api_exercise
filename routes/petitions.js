@@ -9,5 +9,5 @@ async function getPetitions(app) {
 }
 
 module.exports = (app) => {
-    app.get('/petitions', jsonPromiseHandler(app, getPetitions));
+    app.get('/petitions', jsonPromiseHandler(getPetitions, app));
 };

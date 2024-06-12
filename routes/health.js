@@ -5,6 +5,6 @@ async function healthcheck(req) {
 }
 
 module.exports = (app) => {
-    app.get('/', jsonPromiseHandler(app, healthcheck));
-    app.get('/health', jsonPromiseHandler(app, healthcheck));
+    app.get('/', jsonPromiseHandler(healthcheck));
+    app.get('/health', jsonPromiseHandler(healthcheck));
 };
