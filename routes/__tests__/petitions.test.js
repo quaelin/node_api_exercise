@@ -1,13 +1,8 @@
 const app = require('../../app');
 const request = require('supertest');
-const { runQuery, getConnection } = require('../../lib/sql');
+const { runQuery } = require('../../lib/sql');
 
 describe('/petitions', () => {
-    beforeEach(async () => {
-        app.db = await getConnection(
-            `${__dirname}/../../db/node_api_exercise_tests.sqlite`
-        );
-    });
     test('it is available', async () => {
         const response = await request(app).get('/petitions');
         expect(response.status).toBe(200);

@@ -44,5 +44,10 @@
         "parserOptions": {
             "ecmaVersion": 8
         }
+    },
+    "jest": {
+        "setupFiles": [
+            "./jest.js"
+        ]
     }
 }
