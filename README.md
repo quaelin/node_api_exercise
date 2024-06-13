@@ -1,4 +1,5 @@
 [![tests](https://github.com/quaelin/node_api_exercise/actions/workflows/tests.yml/badge.svg)](https://github.com/quaelin/node_api_exercise/actions/workflows/tests.yml)
+![Static Badge](https://img.shields.io/badge/lines%20coverage-87.5-green?color=%2334D058)
 
 # Node.js API Exercise
 

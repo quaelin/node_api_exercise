@@ -19,7 +19,9 @@
         "pretest": "npm run prettier && eslint .",
         "prettier": "npx prettier --write .",
         "start": "nodemon server.js",
-        "test": "jest"
+        "test": "jest --coverage --coverageReporters='json-summary'",
+        "posttest": "npm run report",
+        "report": "node .github/report.js"
     },
     "license": "MIT",
     "dependencies": {
@@ -48,6 +50,11 @@
     "jest": {
         "setupFiles": [
             "./jest.js"
-        ]
+        ],
+        "coverageThreshold": {
+            "global": {
+                "lines": 10
+            }
+        }
     }
 }
