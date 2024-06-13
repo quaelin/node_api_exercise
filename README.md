@@ -19,7 +19,7 @@ $ npm start
 
 The app will then be available at http://127.0.0.1:3000/
 
-## Working
+## Working with tests
 
 ```sh
 $ npm ci
