@@ -1,9 +1,9 @@
 const app = require('../../app');
 const request = require('supertest');
 
-describe('/petitions', () => {
+describe('/health', () => {
     test('it is available', async () => {
-        const response = await request(app).get('/petitions');
+        const response = await request(app).get('/health');
         expect(response.status).toBe(200);
     });
 });
