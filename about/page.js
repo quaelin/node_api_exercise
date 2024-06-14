@@ -1,17 +1,16 @@
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
-const config = {
-    beforeParse: (window) => {
-        window.fetch = (url, options) => {
-            return fetch(`http://localhost:5001${url}`, options);
-        };
-    },
-    runScripts: 'dangerously',
-    resources: 'usable'
-};
 
 const openPage = async (url) => {
-    const dom = await JSDOM.fromURL(url, config);
+    const dom = await JSDOM.fromURL(url, {
+        beforeParse: (window) => {
+            window.fetch = (ressource, options) => {
+                return fetch(`${new URL(url).origin}${ressource}`, options);
+            };
+        },
+        runScripts: 'dangerously',
+        resources: 'usable'
+    });
     return dom.window.document;
 };
 
