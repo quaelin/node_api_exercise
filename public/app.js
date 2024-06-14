@@ -6,7 +6,10 @@ customElements.define(
         }
 
         async connectedCallback() {
-            this.innerHTML = `<div id="petitions-count">Already 2 petitions, and counting</div>`;
+            const petitions = await fetch('/petitions').then((response) =>
+                response.json()
+            );
+            this.innerHTML = `<div id="petitions-count">Already ${petitions.length} petitions, and counting</div>`;
         }
     }
 );
