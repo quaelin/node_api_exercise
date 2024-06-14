@@ -6,15 +6,16 @@ const seedDbWithPetitionCount = require('./seeding.js');
 const { openPage } = require('./page.js');
 
 describe('home page', () => {
+    let port = 5001;
     let server;
     let page;
 
     beforeEach(async () => {
         seedDbWithPetitionCount(2);
         await new Promise((resolve) => {
-            server = http.createServer(app).listen(5001, resolve);
+            server = http.createServer(app).listen(port, resolve);
         });
-        page = await openPage('http://localhost:5001');
+        page = await openPage(`http://localhost:${port}`);
     });
     afterEach(() => {
         server.close();
