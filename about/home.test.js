@@ -1,9 +1,11 @@
 const http = require('http');
+const {
+    openPage,
+    eventually,
+    seedDbWithPetitionCount
+} = require('./support/index.js');
 
 const app = require('../app.js');
-const eventually = require('./eventually.js');
-const seedDbWithPetitionCount = require('./seeding.js');
-const { openPage } = require('./page.js');
 
 describe('home page', () => {
     let port = 5001;
