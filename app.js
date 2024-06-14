@@ -5,7 +5,7 @@ const app = express();
 app.set('json spaces', 4); // pretty-print JSON output from endpoints
 app.use(morgan('dev')); // Request logger
 
-['health', 'petitions'].forEach((route) => {
+['home', 'health', 'petitions'].forEach((route) => {
     require(`./routes/${route}`)(app);
 });
 
