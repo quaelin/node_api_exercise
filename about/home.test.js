@@ -6,6 +6,7 @@ const config = {
     resources: 'usable'
 };
 const app = require('../app.js');
+const eventually = require('./eventually.js');
 
 describe('home page', () => {
     let server;
@@ -26,8 +27,10 @@ describe('home page', () => {
     });
 
     test('displays the number of petitions', async () => {
-        expect(
-            document.querySelector('#petitions-count').textContent
-        ).toContain('2');
+        await eventually(() => {
+            expect(
+                document.querySelector('#petitions-count').textContent
+            ).toContain('2');
+        });
     });
 });
