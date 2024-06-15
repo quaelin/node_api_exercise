@@ -16,22 +16,33 @@
         "db:create": "touch db/node_api_exercise.sqlite && node db/run.js db/node_api_exercise.sqlite db/schema.sql",
         "db:create:tests": "touch db/node_api_exercise_tests.sqlite && node db/run.js db/node_api_exercise_tests.sqlite db/schema.sql",
         "db:populate": "node db/run.js db/node_api_exercise.sqlite db/seeds.sql",
-        "pretest": "npm run prettier && eslint .",
+        "pretest": "npm run prettier && eslint . && npm run build",
         "prettier": "npx prettier --write .",
         "start": "nodemon server.js",
+        "build": "browserify -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ] web/index.js -o build/bundle.js",
         "test": "jest"
     },
     "license": "MIT",
     "dependencies": {
+        "babelify": "^10.0.0",
         "express": "^4.18.2",
         "lodash": "^4.17.21",
         "morgan": "^1.10.0",
         "nodemon": "^3.1.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
         "sql.js": "^1.8.0"
     },
     "devDependencies": {
+        "@babel/cli": "^7.24.7",
+        "@babel/core": "^7.24.7",
+        "@babel/eslint-parser": "^7.24.7",
+        "@babel/plugin-transform-react-jsx": "^7.24.7",
+        "@babel/preset-env": "^7.24.7",
+        "@babel/preset-react": "^7.24.7",
+        "browserify": "^17.0.0",
         "eslint": "^8.32.0",
-        "jest": "^29.4.1",
+        "jest": "^29.7.0",
         "jsdom": "^24.1.0",
         "prettier": "^3.3.2",
         "supertest": "^6.3.3"
@@ -42,9 +53,10 @@
             "node": true,
             "jest": true
         },
-        "parserOptions": {
-            "ecmaVersion": 8
-        }
+        "parser": "@babel/eslint-parser",
+        "ignorePatterns": [
+            "build"
+        ]
     },
     "jest": {
         "setupFiles": [
