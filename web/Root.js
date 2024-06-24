@@ -1,4 +1,5 @@
 const PetitionCount = require('./PetitionCount');
+const Petitions = require('./Petitions');
 
 function Root() {
     return (
@@ -9,9 +10,7 @@ function Root() {
             </section>
             <section>
                 <h1>What is happening</h1>
-                <section>
-                    <h2>We need that</h2>
-                </section>
+                <Petitions />
             </section>
         </section>
     );
