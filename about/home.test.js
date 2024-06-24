@@ -39,5 +39,10 @@ describe('home page', () => {
         await eventually(() => {
             expect(page.body.textContent).toContain('Petition 5');
         });
+        await eventually(() => {
+            expect(page.querySelector('#petition-5').textContent).toContain(
+                'We need this'
+            );
+        });
     });
 });
