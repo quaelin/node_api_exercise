@@ -15,8 +15,9 @@ function Petitions() {
         <>
             {petitions.map((petition, index) => {
                 return (
-                    <section key={index}>
+                    <section key={index} id={`petition-${index + 1}`}>
                         <h2>{petition.title}</h2>
+                        <p>{petition.body}</p>
                     </section>
                 );
             })}
