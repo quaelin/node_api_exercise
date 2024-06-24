@@ -8,4 +8,12 @@ module.exports = (app) => {
         response.write(html);
         response.end();
     });
+
+    app.get('/main.css', function (_, response) {
+        response.setHeader('Content-Type', 'text/css');
+        const code = fs.readFileSync('web/main.css').toString();
+
+        response.write(code);
+        response.end();
+    });
 };
