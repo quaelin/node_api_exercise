@@ -1,4 +1,5 @@
 const { useEffect, useState } = require('react');
+
 const { slug } = require('./slug');
 
 function Petitions() {
