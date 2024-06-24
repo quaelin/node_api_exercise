@@ -13,7 +13,7 @@ describe('home page', () => {
     let page;
 
     beforeEach(async () => {
-        seedDbWithPetitionCount(2);
+        seedDbWithPetitionCount(5);
         await new Promise((resolve) => {
             server = http.createServer(app).listen(port, resolve);
         });
@@ -31,13 +31,13 @@ describe('home page', () => {
         await eventually(() => {
             expect(
                 page.querySelector('#petitions-count').textContent
-            ).toContain('2');
+            ).toContain('Already 5 petitions');
         });
     });
 
     test('displays all the petitions', async () => {
         await eventually(() => {
-            expect(page.body.textContent).toContain('Save 1');
+            expect(page.body.textContent).toContain('Petition 5');
         });
     });
 });
