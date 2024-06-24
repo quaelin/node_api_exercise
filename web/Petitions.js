@@ -1,8 +1,26 @@
+const { useEffect, useState } = require('react');
+
 function Petitions() {
+    const [petitions, setPetitions] = useState([]);
+
+    useEffect(() => {
+        fetch('/petitions')
+            .then((response) => response.json())
+            .then((data) => {
+                setPetitions(data);
+            });
+    }, []);
+
     return (
-        <section>
-            <h2>We need that</h2>
-        </section>
+        <>
+            {petitions.map((petition, index) => {
+                return (
+                    <section key={index}>
+                        <h2>{petition.title}</h2>
+                    </section>
+                );
+            })}
+        </>
     );
 }
 
