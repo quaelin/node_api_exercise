@@ -11,8 +11,8 @@ const seedDbWithPetitionCount = (n) => {
                 values
                 (
                     'urn:changeorg:starter:${i}',
-                    'Save ${i}',
-                    'We need ${i}',
+                    'Petition ${i + 1}',
+                    'We need this',
                     '2020-01-0${i} 00:00:00',
                     '2021-01-0${i} 00:00:00'
                 )
