@@ -1,16 +1,4 @@
-const { useEffect, useState } = require('react');
-
-function PetitionCount() {
-    const [petitions, setPetitions] = useState([]);
-
-    useEffect(() => {
-        fetch('/petitions')
-            .then((response) => response.json())
-            .then((data) => {
-                setPetitions(data);
-            });
-    }, []);
-
+function PetitionCount({ petitions }) {
     return (
         <div id="petitions-count">
             Already {petitions.length} petitions, and counting
