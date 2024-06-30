@@ -11,7 +11,9 @@ set up prior to the interview.
 The app was built using Node.js 20.12.2
 
 ```sh
-$ npm ci
+$ npm install
+$ npm run db:create:tests
+$ npm test
 $ npm run db:create
 $ npm run db:populate
 $ npm start
@@ -19,10 +21,13 @@ $ npm start
 
 The app will then be available at http://127.0.0.1:3000/
 
-## Working with tests
+## Working with Docker
+
 
 ```sh
-$ npm ci
-$ npm run db:create:tests
-$ npm test
+$ cd support
+$ docker-compose run --service-ports --rm --name ubuntu-node-exercise dev bash
+$ nvm install
 ```
+
+Then follow instructions above about running locally.
