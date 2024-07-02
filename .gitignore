@@ -1,4 +1,3 @@
 node_modules
-db/node_api_exercise.sqlite
-db/node_api_exercise_tests.sqlite
+*.sqlite
 build

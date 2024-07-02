@@ -3,9 +3,9 @@ const {
     openPage,
     eventually,
     seedDbWithPetitionCount
-} = require('./support/index.js');
+} = require('../support/testing/index.js');
 
-const app = require('../app.js');
+const app = require('../app/server/app.js');
 
 describe('home page', () => {
     let port = 5001;
