@@ -23,7 +23,6 @@ The app will then be available at http://127.0.0.1:3000/
 
 ## Working with Docker
 
-
 ```sh
 $ cd support
 $ docker-compose run --service-ports --rm --name ubuntu-node-exercise dev bash
