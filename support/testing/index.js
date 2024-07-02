@@ -1,9 +1,9 @@
 const eventually = require('./eventually');
-const { openPage } = require('./page');
+const { Page } = require('./page');
 const seedDbWithPetitionCount = require('./seeding');
 
 module.exports = {
-    openPage,
+    Page,
     eventually,
     seedDbWithPetitionCount
 };

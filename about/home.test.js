@@ -1,6 +1,6 @@
 const http = require('http');
 const {
-    openPage,
+    Page,
     eventually,
     seedDbWithPetitionCount
 } = require('../support/testing/index.js');
@@ -17,32 +17,30 @@ describe('home page', () => {
         await new Promise((resolve) => {
             server = http.createServer(app).listen(port, resolve);
         });
-        page = await openPage(`http://localhost:${port}`);
+        page = new Page();
+        await page.open(`http://localhost:${port}`);
     });
-    afterEach(() => {
+    afterEach(async () => {
         server.close();
+        await page.close();
     });
 
-    test('has the expected title', async () => {
-        expect(page.title).toBe('change.org nodejs coding exercise');
+    test('has the expected title', () => {
+        expect(page.title()).toBe('change.org nodejs coding exercise');
     });
 
     test('displays the number of petitions', async () => {
         await eventually(() => {
-            expect(
-                page.querySelector('#petitions-count').textContent
-            ).toContain('Already 5 petitions');
+            expect(page.section('Welcome')).toContain('Already 5 petitions');
         });
     });
 
     test('displays all the petitions', async () => {
         await eventually(() => {
-            expect(page.body.textContent).toContain('Petition 5');
+            expect(page.section('What is happening')).toContain('Petition 5');
         });
         await eventually(() => {
-            expect(page.querySelector('#petition-5').textContent).toContain(
-                'We need this'
-            );
+            expect(page.section('Petition 5')).toContain('We need this');
         });
     });
 });
