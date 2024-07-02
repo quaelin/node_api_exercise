@@ -1,5 +1,5 @@
 const app = require('./app');
-const config = require('./config.json');
+const config = require('../../config.json');
 const { getConnection } = require('./lib/sql');
 
 app.listen(config.port, async () => {
