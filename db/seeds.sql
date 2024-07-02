@@ -1,3 +1,5 @@
+DELETE FROM petitions;
+
 INSERT INTO
   petitions (starter_urn, title, body, created_at, updated_at)
 VALUES
@@ -57,6 +59,8 @@ VALUES
     DATE ('now', '-6 days'),
     DATE ('now', '-2 hours')
   );
+
+DELETE FROM follows;
 
 INSERT INTO
   follows (user_id, starter_urn)
