@@ -11,6 +11,7 @@ set up prior to the interview.
 The app was built using Node.js 20.12.2
 
 ```sh
+$ nvm use
 $ npm ci
 $ npm run db:create
 $ npm run db:populate
@@ -22,6 +23,7 @@ The app will then be available at http://127.0.0.1:3000/
 ## Working with tests
 
 ```sh
+$ nvm use
 $ npm ci
 $ npm run db:create:tests
 $ npm test
