@@ -2,6 +2,7 @@ const jsdom = require('jsdom');
 const { oneliner } = require('./oneliner.js');
 const { JSDOM } = jsdom;
 const virtualConsole = new jsdom.VirtualConsole();
+virtualConsole.sendTo(console, { omitJSDOMErrors: true });
 const config = {
     runScripts: 'dangerously',
     resources: 'usable',

@@ -1,5 +1,5 @@
 const { useState, useEffect } = require('react');
-const { slug } = require('./slug');
+const Petition = require('./Petition');
 
 function Petitions() {
     const [petitions, setPetitions] = useState([]);
@@ -14,14 +14,9 @@ function Petitions() {
 
     return (
         <>
-            {petitions.map((petition, index) => {
-                return (
-                    <section key={index} id={slug(petition)}>
-                        <h2>{petition.title}</h2>
-                        <p>{petition.body}</p>
-                    </section>
-                );
-            })}
+            {petitions.map((petition, index) => (
+                <Petition key={index} petition={petition} />
+            ))}
         </>
     );
 }
