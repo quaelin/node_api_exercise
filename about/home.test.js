@@ -25,22 +25,24 @@ describe('home page', () => {
         await page.close();
     });
 
-    test('has the expected title', () => {
+    it('has the expected title', () => {
         expect(page.title()).toBe('change.org nodejs coding exercise');
     });
 
-    test('displays the number of petitions', async () => {
+    it('welcomes with the total number of petitions', async () => {
         await eventually(() => {
             expect(page.section('Welcome')).toContain('Already 5 petitions');
         });
     });
 
-    test('displays all the petitions', async () => {
+    it('displays the petitions', async () => {
         await eventually(() => {
             expect(page.section('What is happening')).toContain('Petition 5');
         });
         await eventually(() => {
-            expect(page.section('Petition 5')).toContain('We need this');
+            expect(page.section('Petition 5')).toContain(
+                'We need this 5 times'
+            );
         });
     });
 });

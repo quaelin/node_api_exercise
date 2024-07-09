@@ -2,10 +2,10 @@ const express = require('express');
 const morgan = require('morgan');
 
 const app = express();
-app.set('json spaces', 4); // pretty-print JSON output from endpoints
-app.use(morgan('dev')); // Request logger
+app.set('json spaces', 4);
+app.use(morgan('dev'));
 
-['home', 'health', 'petitions', 'webapp'].forEach((route) => {
+['home', 'health', 'petitions', 'webapp', 'petitionsStats'].forEach((route) => {
     require(`./routes/${route}`)(app);
 });
 

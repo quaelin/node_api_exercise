@@ -1,6 +1,17 @@
+const { useState, useEffect } = require('react');
 const { slug } = require('./slug');
 
-function Petitions({ petitions }) {
+function Petitions() {
+    const [petitions, setPetitions] = useState([]);
+
+    useEffect(() => {
+        fetch('/petitions')
+            .then((response) => response.json())
+            .then((data) => {
+                setPetitions(data);
+            });
+    }, []);
+
     return (
         <>
             {petitions.map((petition, index) => {

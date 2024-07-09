@@ -1,9 +1,11 @@
 const eventually = require('./eventually');
 const { Page } = require('./page');
-const seedDbWithPetitionCount = require('./seeding');
+const { seedDbWithPetitionCount, savePetition } = require('./seeding');
+require('./dates');
 
 module.exports = {
     Page,
     eventually,
-    seedDbWithPetitionCount
+    seedDbWithPetitionCount,
+    savePetition
 };

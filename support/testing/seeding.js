@@ -4,21 +4,32 @@ const { runQuery } = require('../../app/server/lib/sql');
 const seedDbWithPetitionCount = (n) => {
     runQuery(app.db, 'delete from petitions');
     for (let i = 0; i < n; i++) {
-        runQuery(
-            app.db,
-            `
-                insert into petitions (starter_urn, title, body, created_at, updated_at)
-                values
-                (
-                    'urn:changeorg:starter:${i}',
-                    'Petition ${i + 1}',
-                    'We need this',
-                    '2020-01-0${i} 00:00:00',
-                    '2021-01-0${i} 00:00:00'
-                )
-            `
-        );
+        savePetition({
+            starter: `urn:changeorg:starter:${i}`,
+            title: `Petition ${i + 1}`,
+            body: `We need this ${i + 1} times`,
+            created_at: (i + 1).days().ago(),
+            updated_at: new Date()
+        });
     }
 };
 
-module.exports = seedDbWithPetitionCount;
+const savePetition = (petition) => {
+    petition.created_at = petition.created_at || new Date();
+    petition.updated_at = petition.updated_at || new Date();
+    petition.body = petition.body || petition.title || 'We need this';
+    const sql = `
+        insert into petitions (starter_urn, title, body, created_at, updated_at)
+        values
+        (
+            '${petition.starter}',
+            '${petition.title}',
+            '${petition.body}',
+            '${petition.created_at.toISOString()}',
+            '${petition.created_at.toISOString()}'
+        )
+        `;
+    runQuery(app.db, sql);
+};
+
+module.exports = { seedDbWithPetitionCount, savePetition };
