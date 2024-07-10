@@ -15,6 +15,7 @@ const seedDbWithPetitionCount = (n) => {
 };
 
 const savePetition = (petition) => {
+    petition.starter = petition.starter || 'Bob';
     petition.created_at = petition.created_at || (0).days().ago();
     petition.updated_at = petition.updated_at || (0).days().ago();
     petition.body = petition.body || petition.title || 'We need this';
