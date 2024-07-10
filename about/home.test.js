@@ -11,9 +11,10 @@ describe('home page', () => {
     let port = 5001;
     let server;
     let page;
+    let petitionCount = 9;
 
     beforeEach(async () => {
-        seedDbWithPetitionCount(5);
+        seedDbWithPetitionCount(petitionCount);
         await new Promise((resolve) => {
             server = http.createServer(app).listen(port, resolve);
         });
@@ -31,18 +32,25 @@ describe('home page', () => {
 
     it('welcomes with the total number of petitions', async () => {
         await eventually(() => {
-            expect(page.section('Welcome')).toContain('Already 5 petitions');
+            expect(page.section('Welcome')).toContain('Already 9 petitions');
         });
     });
 
-    it('displays the petitions', async () => {
+    it('displays petition info', async () => {
         await eventually(() => {
-            expect(page.section('What is happening')).toContain('Petition 5');
-        });
-        await eventually(() => {
-            expect(page.section('Petition 5')).toContain(
-                'We need this 5 times'
+            expect(page.section('Petition 2')).toContain(
+                'We need this 2 times'
             );
+        });
+    });
+
+    it('displays all the petitions', async () => {
+        await eventually(() => {
+            const petitions = page
+                .section('What is happening')
+                .match(/Petition/g);
+
+            expect(petitions.length).toEqual(petitionCount);
         });
     });
 });
