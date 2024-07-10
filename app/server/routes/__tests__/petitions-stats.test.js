@@ -8,12 +8,12 @@ describe('/petitions-stats', () => {
         runQuery(app.db, 'delete from petitions');
     });
 
-    test('it is available', async () => {
+    it('is available', async () => {
         const response = await request(app).get('/petitions-stats');
         expect(response.status).toBe(200);
     });
 
-    test('it returns the petitions count', async () => {
+    it('returns the petitions count', async () => {
         savePetition({ starter: 'Bob', title: 'any' });
         savePetition({ starter: 'Bob', title: 'other' });
         savePetition({ starter: 'Bob', title: 'something' });
