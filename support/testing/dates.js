@@ -8,13 +8,21 @@ Number.prototype.hours = function () {
 };
 Number.prototype.ago = function (ref) {
     const now = ref || new Date();
-    const date = new Date(now.getTime() - this.valueOf());
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const day = date.getDate();
-    const hours = date.getHours();
-
-    const before = new Date(year, month, day, hours + 1);
+    const before = new Date(now.getTime() - this.valueOf());
     before.nowWas = now;
     return before;
+};
+Number.prototype.midnightAgo = function (ref) {
+    const now = ref || new Date();
+    const midnight = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate(),
+        0,
+        0,
+        0,
+        0
+    );
+
+    return new Date(midnight.getTime() - (this.valueOf() - 1).days());
 };
