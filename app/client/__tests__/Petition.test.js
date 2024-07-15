@@ -14,10 +14,10 @@ describe('Petition component', () => {
         );
     });
     it('displays petition title', async () => {
-        expect(screen.findByText('amazing title')).toBeDefined();
+        expect(await screen.findByText('amazing title')).toBeDefined();
     });
 
     it('displays petition body', async () => {
-        expect(screen.findByText('crazy body')).toBeDefined();
+        expect(await screen.findByText('crazy body')).toBeDefined();
     });
 });
