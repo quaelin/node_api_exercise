@@ -12,9 +12,12 @@ function PetitionsStats() {
     }, []);
 
     return (
-        <div id="petitions-count">
-            Already {petitionsCount} petitions, and counting
-        </div>
+        <section>
+            <h1>Welcome</h1>
+            <div id="petitions-count">
+                Already {petitionsCount} petitions, and counting
+            </div>
+        </section>
     );
 }
 

@@ -1,17 +1,14 @@
 const PetitionsStats = require('./PetitionsStats');
 const Petitions = require('./Petitions');
+const { useFetchPetitions } = require('./useFetchPetitions');
 
 function HomePage() {
+    useFetchPetitions();
+
     return (
         <section>
-            <section>
-                <h1>Welcome</h1>
-                <PetitionsStats />
-            </section>
-            <section>
-                <h1>What is happening</h1>
-                <Petitions />
-            </section>
+            <PetitionsStats />
+            <Petitions />
         </section>
     );
 }

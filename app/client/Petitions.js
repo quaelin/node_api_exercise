@@ -1,23 +1,17 @@
-const { useState, useEffect } = require('react');
+const { useContext } = require('react');
+const { AppContext } = require('./AppContext.js');
 const Petition = require('./Petition');
 
 function Petitions() {
-    const [petitions, setPetitions] = useState([]);
-
-    useEffect(() => {
-        fetch('/petitions')
-            .then((response) => response.json())
-            .then((data) => {
-                setPetitions(data);
-            });
-    }, []);
+    const { petitions } = useContext(AppContext);
 
     return (
-        <>
+        <section>
+            <h1>What is happening</h1>
             {petitions.map((petition, index) => (
                 <Petition key={index} petition={petition} />
             ))}
-        </>
+        </section>
     );
 }
 
