@@ -1,15 +1,11 @@
-const { useState, useEffect } = require('react');
+const { useContext } = require('react');
+const { AppContext } = require('./AppContext');
+const { useFetchStats } = require('./outbound/useFetchStats');
 
 function PetitionsStats() {
-    const [petitionsCount, setPetitionsCount] = useState();
+    const { petitionsCount } = useContext(AppContext);
 
-    useEffect(() => {
-        fetch('/petitions-stats')
-            .then((response) => response.json())
-            .then(({ count }) => {
-                setPetitionsCount(count);
-            });
-    }, []);
+    useFetchStats();
 
     return (
         <section>

@@ -1,9 +1,12 @@
 const { useContext } = require('react');
 const { AppContext } = require('./AppContext.js');
 const Petition = require('./Petition');
+const { useFetchPetitions } = require('./outbound/useFetchPetitions.js');
 
 function Petitions() {
     const { petitions } = useContext(AppContext);
+
+    useFetchPetitions();
 
     return (
         <section>
