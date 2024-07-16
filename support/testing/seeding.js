@@ -1,5 +1,5 @@
-import { app } from '../../app/server/app';
-import { runQuery } from '../../app/server/lib/sql';
+import { app } from '../../app/server/inbound/app';
+import { runQuery } from '../../app/server/db/sql';
 require('./dates');
 
 export const seedDbWithPetitionCount = (n) => {

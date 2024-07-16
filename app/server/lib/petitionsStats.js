@@ -1,4 +1,4 @@
-import { runQuery } from './sql.js';
+import { runQuery } from '../db/sql.js';
 
 export async function getPetitionsStats(app) {
     const values = await runQuery(

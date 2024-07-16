@@ -1,6 +1,6 @@
-import { app } from '../app';
+import { app } from '../inbound/app';
 import request from 'supertest';
-import { runQuery } from '../lib/sql';
+import { runQuery } from '../db/sql';
 import { savePetition } from '../../../support/testing/seeding';
 
 describe('/petitions-stats', () => {

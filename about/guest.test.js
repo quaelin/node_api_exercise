@@ -5,7 +5,7 @@
 import http from 'http';
 import { Page, eventually, seedDbWithPetitionCount } from '../support/testing';
 
-import { app } from '../app/server/app.js';
+import { app } from '../app/server/inbound/app.js';
 
 describe('home page', () => {
     let port = 5001;

@@ -11,7 +11,7 @@ if (!dbfilename.endsWith('.sqlite') || !sqlfilename.endsWith('.sql')) {
 import fs from 'fs';
 const schema = fs.readFileSync(sqlfilename).toString();
 
-import { getConnection, runQuery } from '../lib/sql.js';
+import { getConnection, runQuery } from './sql.js';
 const runSqlFile = async (file, schema) => {
     const db = await getConnection(file);
     await runQuery(db, schema);

@@ -1,5 +1,5 @@
-import { app } from './app/server/app';
-import { getConnection } from './app/server/lib/sql';
+import { app } from './app/server/inbound/app';
+import { getConnection } from './app/server/db/sql';
 
 module.exports = async function () {
     app.db = await getConnection(
