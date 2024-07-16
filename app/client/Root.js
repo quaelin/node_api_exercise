@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { AppContext } from './AppContext.js';
+import { AppContext } from './store/AppContext.js';
+import { useStore } from './store/useStore.js';
 import { HomePage } from './HomePage.js';
-import { useStore } from './useStore.js';
 
 export function Root() {
     const value = useStore();

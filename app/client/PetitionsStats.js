@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AppContext } from './AppContext.js';
+import { AppContext } from './store/AppContext.js';
 import { useFetchStats } from './outbound/useFetchStats.js';
 
 export function PetitionsStats() {

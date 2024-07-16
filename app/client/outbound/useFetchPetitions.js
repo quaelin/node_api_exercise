@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { AppContext } from '../AppContext.js';
+import { AppContext } from '../store/AppContext.js';
 
 export function useFetchPetitions() {
     const { setPetitions } = useContext(AppContext);
