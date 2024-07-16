@@ -1,7 +1,7 @@
 const delay = 45;
 const tries = 30;
 
-module.exports = async (verify) => {
+export const eventually = async (verify) => {
     return new Promise(async (resolve, reject) => {
         let credit = tries;
         const tryNow = async () => {

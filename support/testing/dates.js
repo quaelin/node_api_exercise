@@ -12,17 +12,3 @@ Number.prototype.ago = function (ref) {
     before.nowWas = now;
     return before;
 };
-Number.prototype.midnightAgo = function (ref) {
-    const now = ref || new Date();
-    const midnight = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
-        0,
-        0,
-        0,
-        0
-    );
-
-    return new Date(midnight.getTime() - (this.valueOf() - 1).days());
-};

@@ -8,10 +8,10 @@ if (!dbfilename.endsWith('.sqlite') || !sqlfilename.endsWith('.sql')) {
     process.exit(1);
 }
 
-const fs = require('fs');
+import fs from 'fs';
 const schema = fs.readFileSync(sqlfilename).toString();
 
-const { getConnection, runQuery } = require('../lib/sql.js');
+import { getConnection, runQuery } from '../lib/sql.js';
 const runSqlFile = async (file, schema) => {
     const db = await getConnection(file);
     await runQuery(db, schema);

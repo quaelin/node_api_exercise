@@ -1,8 +1,8 @@
-const app = require('../../app/server/app');
-const { runQuery } = require('../../app/server/lib/sql');
+import { app } from '../../app/server/app';
+import { runQuery } from '../../app/server/lib/sql';
 require('./dates');
 
-const seedDbWithPetitionCount = (n) => {
+export const seedDbWithPetitionCount = (n) => {
     runQuery(app.db, 'delete from petitions');
     for (let i = 0; i < n; i++) {
         savePetition({
@@ -14,7 +14,7 @@ const seedDbWithPetitionCount = (n) => {
     }
 };
 
-const savePetition = (petition) => {
+export const savePetition = (petition) => {
     petition.starter = petition.starter || 'Bob';
     petition.created_at = petition.created_at || (1).days().ago();
     petition.updated_at = petition.updated_at || (1).days().ago();
@@ -32,5 +32,3 @@ const savePetition = (petition) => {
         `;
     runQuery(app.db, sql);
 };
-
-module.exports = { seedDbWithPetitionCount, savePetition };

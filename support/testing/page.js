@@ -1,5 +1,4 @@
-const jsdom = require('jsdom');
-const { oneliner } = require('./oneliner.js');
+import jsdom from 'jsdom';
 const { JSDOM } = jsdom;
 const virtualConsole = new jsdom.VirtualConsole();
 virtualConsole.sendTo(console, { omitJSDOMErrors: true });
@@ -14,8 +13,9 @@ const openWithJsdom = (isUrl, isHtml) =>
         : isHtml
           ? (target, options) => new JSDOM(target, options)
           : JSDOM.fromFile;
+const oneliner = (text) => text.replace(/\s+|\n/g, ' ').trim();
 
-class Page {
+export class Page {
     constructor() {
         this.errors = [];
     }
@@ -163,7 +163,3 @@ class Page {
         )[0];
     }
 }
-
-module.exports = {
-    Page
-};

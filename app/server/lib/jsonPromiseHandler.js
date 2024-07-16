@@ -1,4 +1,4 @@
-module.exports = function (asyncHandler, app) {
+export function jsonPromiseHandler(asyncHandler, app) {
     return (req, res, next) => {
         asyncHandler(app, req)
             .then((result) => {
@@ -14,4 +14,4 @@ module.exports = function (asyncHandler, app) {
                 next();
             });
     };
-};
+}

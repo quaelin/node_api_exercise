@@ -2,14 +2,10 @@
  * @jest-environment node
  */
 
-const http = require('http');
-const {
-    Page,
-    eventually,
-    seedDbWithPetitionCount
-} = require('../support/testing');
+import http from 'http';
+import { Page, eventually, seedDbWithPetitionCount } from '../support/testing';
 
-const app = require('../app/server/app.js');
+import { app } from '../app/server/app.js';
 
 describe('home page', () => {
     let port = 5001;

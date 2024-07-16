@@ -1,7 +1,7 @@
-const { savePetition } = require('../../../../support/testing/seeding');
-const app = require('../../app');
-const request = require('supertest');
-const { runQuery } = require('../../lib/sql');
+import { app } from '../app';
+import request from 'supertest';
+import { runQuery } from '../lib/sql';
+import { savePetition } from '../../../support/testing/seeding';
 
 describe('/petitions-stats', () => {
     beforeEach(() => {

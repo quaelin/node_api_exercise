@@ -1,5 +1,5 @@
-const app = require('./app/server/app');
-const { getConnection } = require('./app/server/lib/sql');
+import { app } from './app/server/app';
+import { getConnection } from './app/server/lib/sql';
 
 module.exports = async function () {
     app.db = await getConnection(
