@@ -1,9 +1,13 @@
+/**
+ * @jest-environment node
+ */
+
 const http = require('http');
 const {
     Page,
     eventually,
     seedDbWithPetitionCount
-} = require('../support/testing/index.js');
+} = require('../support/testing');
 
 const app = require('../app/server/app.js');
 

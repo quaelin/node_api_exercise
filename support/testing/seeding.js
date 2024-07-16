@@ -1,5 +1,6 @@
 const app = require('../../app/server/app');
 const { runQuery } = require('../../app/server/lib/sql');
+require('./dates');
 
 const seedDbWithPetitionCount = (n) => {
     runQuery(app.db, 'delete from petitions');

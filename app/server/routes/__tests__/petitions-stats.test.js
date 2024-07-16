@@ -1,4 +1,4 @@
-const { savePetition } = require('../../../../support/testing');
+const { savePetition } = require('../../../../support/testing/seeding');
 const app = require('../../app');
 const request = require('supertest');
 const { runQuery } = require('../../lib/sql');
