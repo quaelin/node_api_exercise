@@ -1,9 +1,9 @@
-const { useContext } = require('react');
-const { AppContext } = require('./AppContext.js');
-const Petition = require('./Petition');
-const { useFetchPetitions } = require('./outbound/useFetchPetitions.js');
+import { useContext } from 'react';
+import { AppContext } from './AppContext.js';
+import { Petition } from './Petition.js';
+import { useFetchPetitions } from './outbound/useFetchPetitions.js';
 
-function Petitions() {
+export function Petitions() {
     const { petitions } = useContext(AppContext);
 
     useFetchPetitions();
@@ -17,5 +17,3 @@ function Petitions() {
         </section>
     );
 }
-
-module.exports = Petitions;

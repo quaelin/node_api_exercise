@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Petition from '../Petition';
+import { Petition } from '../Petition.js';
 
 describe('Petition component', () => {
     beforeEach(async () => {

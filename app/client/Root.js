@@ -1,9 +1,9 @@
-const { Routes, Route, BrowserRouter } = require('react-router-dom');
-const { AppContext } = require('./AppContext.js');
-const HomePage = require('./HomePage');
-const { useStore } = require('./useStore');
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { AppContext } from './AppContext.js';
+import { HomePage } from './HomePage.js';
+import { useStore } from './useStore.js';
 
-function Root() {
+export function Root() {
     const value = useStore();
 
     return (
@@ -16,5 +16,3 @@ function Root() {
         </AppContext.Provider>
     );
 }
-
-module.exports = Root;

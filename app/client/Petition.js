@@ -1,4 +1,4 @@
-function Petition({ petition }) {
+export function Petition({ petition }) {
     return (
         <section>
             <h2>{petition.title}</h2>
@@ -6,5 +6,3 @@ function Petition({ petition }) {
         </section>
     );
 }
-
-module.exports = Petition;

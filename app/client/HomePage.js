@@ -1,7 +1,7 @@
-const PetitionsStats = require('./PetitionsStats');
-const Petitions = require('./Petitions');
+import { PetitionsStats } from './PetitionsStats.js';
+import { Petitions } from './Petitions.js';
 
-function HomePage() {
+export function HomePage() {
     return (
         <section>
             <PetitionsStats />
@@ -9,5 +9,3 @@ function HomePage() {
         </section>
     );
 }
-
-module.exports = HomePage;

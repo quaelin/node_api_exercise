@@ -1,8 +1,8 @@
-const { useContext } = require('react');
-const { AppContext } = require('./AppContext');
-const { useFetchStats } = require('./outbound/useFetchStats');
+import { useContext } from 'react';
+import { AppContext } from './AppContext.js';
+import { useFetchStats } from './outbound/useFetchStats.js';
 
-function PetitionsStats() {
+export function PetitionsStats() {
     const { petitionsCount } = useContext(AppContext);
 
     useFetchStats();
@@ -16,5 +16,3 @@ function PetitionsStats() {
         </section>
     );
 }
-
-module.exports = PetitionsStats;
