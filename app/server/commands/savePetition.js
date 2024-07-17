@@ -7,7 +7,7 @@ export const savePetition = (petition) => {
     `;
     const stmt = app.db.prepare(sql);
     stmt.run([
-        petition.starter,
+        petition.starter_urn,
         petition.title,
         petition.body,
         petition.created_at,

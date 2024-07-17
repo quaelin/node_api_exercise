@@ -1,6 +1,7 @@
 import { app } from '../../app/server/inbound/app';
 import { runQuery } from '../../app/server/db/sql';
 import { savePetition } from '../../app/server/commands/savePetition';
+import { Petition } from '../../app/domain/Petition';
 require('./dates');
 
 export const seedDbWithPetitionCount = (n) => {
@@ -17,10 +18,10 @@ export const seedDbWithPetitionCount = (n) => {
     }
 };
 
-export const petition = (fields) => ({
-    ...fields,
-    starter: fields.starter || 'Bob',
-    created_at: fields.created_at || (1).days().ago().toISOString(),
-    updated_at: fields.updated_at || (1).days().ago().toISOString(),
-    body: fields.body || fields.title || 'We need this'
-});
+export const petition = (fields) =>
+    new Petition({
+        ...fields,
+        created_at: fields.created_at || (1).days().ago().toISOString(),
+        updated_at: fields.updated_at || (1).days().ago().toISOString(),
+        body: fields.body || fields.title || 'We need this'
+    }).startedBy('Bob');
