@@ -11,7 +11,7 @@ export default {
     entry: './app/client/index.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, './app/build')
+        path: path.resolve(__dirname, './build')
     },
     resolve: {
         extensions: ['.js']
