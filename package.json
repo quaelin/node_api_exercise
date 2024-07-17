@@ -21,7 +21,7 @@
         "prettier": "npx prettier --write .",
         "start": "nodemon --watch app --exec \"npm run build && node app/server/server.js\"",
         "build": "webpack --config webpack.config.js",
-        "test": "jest"
+        "test": "jest --verbose"
     },
     "license": "MIT",
     "dependencies": {
@@ -65,9 +65,27 @@
         ]
     },
     "jest": {
-        "testEnvironment": "jsdom",
-        "setupFiles": [
-            "./jest.js"
+        "projects": [
+            {
+                "displayName": "external tests",
+                "testEnvironment": "node",
+                "testMatch": [
+                    "<rootDir>/about/**/*.test.js"
+                ],
+                "setupFiles": [
+                    "./jest.js"
+                ]
+            },
+            {
+                "displayName": "internal tests",
+                "testEnvironment": "jsdom",
+                "testMatch": [
+                    "<rootDir>/app/**/*.test.js"
+                ],
+                "setupFiles": [
+                    "./jest.js"
+                ]
+            }
         ]
     },
     "babel": {

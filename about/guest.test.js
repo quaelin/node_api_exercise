@@ -1,7 +1,3 @@
-/**
- * @jest-environment node
- */
-
 import http from 'http';
 import { Page, eventually } from '../support/testing';
 
