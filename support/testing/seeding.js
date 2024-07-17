@@ -10,8 +10,8 @@ export const seedDbWithPetitionCount = (n) => {
             petition({
                 title: `Petition ${i + 1}`,
                 body: `We need this ${i + 1} times`,
-                created_at: (i + 1).days().ago(),
-                updated_at: (i + 1).days().ago()
+                created_at: (i + 1).days().ago().toISOString(),
+                updated_at: (i + 1).days().ago().toISOString()
             })
         );
     }
@@ -20,7 +20,7 @@ export const seedDbWithPetitionCount = (n) => {
 export const petition = (fields) => ({
     ...fields,
     starter: fields.starter || 'Bob',
-    created_at: fields.created_at || (1).days().ago(),
-    updated_at: fields.updated_at || (1).days().ago(),
+    created_at: fields.created_at || (1).days().ago().toISOString(),
+    updated_at: fields.updated_at || (1).days().ago().toISOString(),
     body: fields.body || fields.title || 'We need this'
 });

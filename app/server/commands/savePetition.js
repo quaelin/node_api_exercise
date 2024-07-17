@@ -9,8 +9,8 @@ export const savePetition = (petition) => {
             '${petition.starter}',
             '${petition.title}',
             '${petition.body}',
-            '${petition.created_at.toISOString()}',
-            '${petition.created_at.toISOString()}'
+            '${petition.created_at}',
+            '${petition.created_at}'
         )
         `;
     runQuery(app.db, sql);
