@@ -1,7 +1,8 @@
 import { app } from '../inbound/app';
 import request from 'supertest';
 import { runQuery } from '../db/sql';
-import { savePetition } from '../../../support/testing/seeding';
+import { petition } from '../../../support/testing/seeding';
+import { savePetition } from '../commands/savePetition';
 
 describe('/petitions-stats', () => {
     beforeEach(() => {
@@ -14,9 +15,9 @@ describe('/petitions-stats', () => {
     });
 
     it('returns the petitions count', async () => {
-        savePetition({ starter: 'Bob', title: 'any' });
-        savePetition({ starter: 'Bob', title: 'other' });
-        savePetition({ starter: 'Bob', title: 'something' });
+        savePetition(petition({ title: 'any' }));
+        savePetition(petition({ title: 'other' }));
+        savePetition(petition({ title: 'something' }));
         const response = await request(app).get('/petitions-stats');
 
         expect(response.body).toEqual({ count: 3 });

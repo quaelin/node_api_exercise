@@ -3,9 +3,10 @@
  */
 
 import http from 'http';
-import { Page, eventually, seedDbWithPetitionCount } from '../support/testing';
+import { Page, eventually } from '../support/testing';
 
 import { app } from '../app/server/inbound/app.js';
+import { seedDbWithPetitionCount } from '../support/testing/seeding.js';
 
 describe('home page', () => {
     let port = 5001;

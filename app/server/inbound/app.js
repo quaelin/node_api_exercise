@@ -1,8 +1,8 @@
 import fs from 'fs';
 import express from 'express';
 import morgan from 'morgan';
-import { getPetitions } from '../lib/petitions.js';
-import { getPetitionsStats } from '../lib/petitionsStats.js';
+import { getPetitions } from '../queries/petitions.js';
+import { getPetitionsStats } from '../queries/petitionsStats.js';
 import { jsonPromiseHandler } from './jsonPromiseHandler.js';
 
 export const app = express();
