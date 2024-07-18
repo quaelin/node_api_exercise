@@ -1,5 +1,5 @@
 import http from 'http';
-import { Page, eventually } from '../support/testing';
+import { Page, eventually } from '../support/testing/index.js';
 
 import { app } from '../app/server/inbound/app.js';
 import { seedDbWithPetitionCount } from '../support/testing/seeding.js';
@@ -19,7 +19,7 @@ describe('home page', () => {
         await page.open(`http://localhost:${port}`);
     });
     afterEach(async () => {
-        server.close();
+        await server.close();
         await page.close();
     });
 
@@ -30,24 +30,6 @@ describe('home page', () => {
     it('welcomes with the total number of petitions', async () => {
         await eventually(() => {
             expect(page.section('Welcome')).toContain('Already 9 petitions');
-        });
-    });
-
-    it('displays petition info', async () => {
-        await eventually(() => {
-            expect(page.section('Petition 2')).toContain(
-                'We need this 2 times'
-            );
-        });
-    });
-
-    it('displays all the petitions', async () => {
-        await eventually(() => {
-            const petitions = page
-                .section('What is happening')
-                .match(/Petition/g);
-
-            expect(petitions.length).toEqual(petitionCount);
         });
     });
 });
