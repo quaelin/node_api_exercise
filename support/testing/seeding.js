@@ -11,21 +11,13 @@ export const seedDbWithPetitionCount = (n) => {
     saveUser(new User('Bob'), app.db);
     for (let i = 0; i < n; i++) {
         savePetition(
-            petition({
+            new Petition({
                 title: `Petition ${i + 1}`,
                 body: `We need this ${i + 1} times`,
                 created_at: (i + 1).days().ago().toISOString(),
                 updated_at: (i + 1).days().ago().toISOString()
-            }),
+            }).startedBy('Bob'),
             app.db
         );
     }
 };
-
-export const petition = (fields) =>
-    new Petition({
-        ...fields,
-        created_at: fields.created_at || (1).days().ago().toISOString(),
-        updated_at: fields.updated_at || (1).days().ago().toISOString(),
-        body: fields.body || fields.title || 'We need this'
-    }).startedBy('Bob');

@@ -12,6 +12,10 @@ describe('Petition', () => {
         });
         expect(petition.body).toEqual('We need it now');
     });
+    it('defaults body to empty', () => {
+        const petition = new Petition({});
+        expect(petition.body).toEqual('');
+    });
 
     it('has a creation timestamp', () => {
         const petition = new Petition({
@@ -19,12 +23,24 @@ describe('Petition', () => {
         });
         expect(petition.created_at).toEqual('yesterday');
     });
+    it('defaults creation timestamp to now', () => {
+        const petition = new Petition({});
+        expect(
+            new Date().getTime() - new Date(petition.created_at).getTime()
+        ).toBeLessThan(10);
+    });
 
     it('has a updated timestamp', () => {
         const petition = new Petition({
             updated_at: 'today'
         });
         expect(petition.updated_at).toEqual('today');
+    });
+    it('defaults updated timestamp to now', () => {
+        const petition = new Petition({});
+        expect(
+            new Date().getTime() - new Date(petition.updated_at).getTime()
+        ).toBeLessThan(10);
     });
 
     it('is created by someone', () => {
