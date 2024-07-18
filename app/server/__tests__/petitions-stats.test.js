@@ -15,9 +15,9 @@ describe('/petitions-stats', () => {
     });
 
     it('returns the petitions count', async () => {
-        savePetition(petition({ title: 'any' }));
-        savePetition(petition({ title: 'other' }));
-        savePetition(petition({ title: 'something' }));
+        savePetition(petition({ title: 'any' }), app.db);
+        savePetition(petition({ title: 'other' }), app.db);
+        savePetition(petition({ title: 'something' }), app.db);
         const response = await request(app).get('/petitions-stats');
 
         expect(response.body).toEqual({ count: 3 });

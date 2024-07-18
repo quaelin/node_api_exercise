@@ -16,10 +16,10 @@
     "scripts": {
         "db:create": "touch app/server/db/node_api_exercise.sqlite && node app/server/db/run.js app/server/db/node_api_exercise.sqlite app/server/db/schema.sql",
         "db:create:tests": "touch app/server/db/node_api_exercise_tests.sqlite && node app/server/db/run.js app/server/db/node_api_exercise_tests.sqlite app/server/db/schema.sql",
-        "db:populate": "node app/server/db/run.js app/server/db/node_api_exercise.sqlite app/server/db/seeds.sql",
+        "db:populate": "node app/server/db/seeds.js app/server/db/node_api_exercise.sqlite",
         "pretest": "npm run prettier && eslint . && npm run build",
         "prettier": "npx prettier --write .",
-        "start": "nodemon --watch app --exec \"npm run build && node app/server/server.js\"",
+        "start": "nodemon --watch app --ext js,sqlite,html,css --exec \"npm run build && node app/server/server.js\"",
         "build": "webpack --config webpack.config.js",
         "test": "jest --verbose"
     },

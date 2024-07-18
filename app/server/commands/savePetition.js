@@ -1,13 +1,11 @@
-import { app } from '../inbound/app';
-
-export const savePetition = (petition) => {
+export const savePetition = (petition, db) => {
     const sql = `
-        insert into petitions (starter_urn, title, body, created_at, updated_at)
-        values (:starter_urn, :title, :body, :created_at, :updated_at)
+        insert into petitions (starter_name, title, body, created_at, updated_at)
+        values (:starter_name, :title, :body, :created_at, :updated_at)
     `;
-    const stmt = app.db.prepare(sql);
+    const stmt = db.prepare(sql);
     stmt.run([
-        petition.starter_urn,
+        petition.starter_name,
         petition.title,
         petition.body,
         petition.created_at,

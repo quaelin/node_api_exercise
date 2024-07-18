@@ -6,8 +6,8 @@ export class Petition {
         this.updated_at = fields.updated_at;
     }
 
-    startedBy(urn) {
-        this.starter_urn = urn;
+    startedBy(name) {
+        this.starter_name = name;
         return this;
     }
 }

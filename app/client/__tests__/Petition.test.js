@@ -5,7 +5,10 @@ describe('Petition component', () => {
     beforeEach(async () => {
         render(
             Petition({
-                petition: { title: 'amazing title', body: 'crazy body' }
+                petition: {
+                    title: 'amazing title',
+                    body: 'crazy body'
+                }
             })
         );
     });

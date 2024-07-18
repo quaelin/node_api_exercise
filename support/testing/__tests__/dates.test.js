@@ -1,4 +1,4 @@
-require('../dates');
+import '../dates';
 
 describe('Dates', function () {
     it('offers days granularity', () => {

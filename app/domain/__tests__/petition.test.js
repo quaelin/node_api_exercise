@@ -31,6 +31,6 @@ describe('Petition', () => {
         const petition = new Petition({ title: 'We need this' }).startedBy(
             'Bob'
         );
-        expect(petition.starter_urn).toEqual('Bob');
+        expect(petition.starter_name).toEqual('Bob');
     });
 });
