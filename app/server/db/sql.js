@@ -18,3 +18,13 @@ export async function runQuery(db, sqlStatement) {
         return [];
     }
 }
+
+export function getRows(stmt) {
+    const rows = [];
+    while (stmt.step()) {
+        const row = stmt.getAsObject();
+        rows.push(row);
+    }
+    stmt.free();
+    return rows;
+}

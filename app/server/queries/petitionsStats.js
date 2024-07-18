@@ -1,7 +1,8 @@
+import { getRows } from '../db/sql';
+
 export async function getPetitionsStats(app) {
     const stmt = app.db.prepare('SELECT count(*) count FROM petitions;');
-    stmt.step();
-    const row = stmt.getAsObject();
+    const [row] = getRows(stmt);
 
     return { count: row.count };
 }
