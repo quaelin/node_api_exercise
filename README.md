@@ -21,10 +21,10 @@ $ npm start
 
 The app will then be available at http://127.0.0.1:3000/
 
-## Working with Docker
+## Working from Docker
 
 ```sh
-$ cd support
+$ cd support/working
 $ docker-compose run --service-ports --rm --name ubuntu-node-exercise dev bash
 $ nvm install
 ```
