@@ -14,7 +14,12 @@ const schema = fs.readFileSync(sqlfilename).toString();
 import { getConnection, runQuery } from './sql.js';
 const runSqlFile = async (file, schema) => {
     const db = await getConnection(file);
-    await runQuery(db, schema);
+    try {
+        await runQuery(db, schema);
+    } catch (error) {
+        console.log(error);
+        process.exit(1);
+    }
 
     const data = db.export();
     const buffer = Buffer.from(data);
