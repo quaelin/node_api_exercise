@@ -12,7 +12,7 @@ services:
             - ../../package.json:/root/code/package.json
             - ../../package-lock.json:/root/code/package-lock.json
             - ../../.prettierrc:/root/code/.prettierrc
-            - ../../config.json:/root/code/config.json
             - ../../jest.js:/root/code/jest.js
+            - ../../webpack.config.js:/root/code/webpack.config.js
             - ../../app:/root/code/app
             - ../../support/testing:/root/code/support/testing
