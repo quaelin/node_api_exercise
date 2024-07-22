@@ -1,5 +1,4 @@
 import fs from 'fs';
-import zipObject from 'lodash/zipObject.js';
 import initSqlJs from 'sql.js';
 
 export async function getConnection(file) {
@@ -13,7 +12,13 @@ export async function runQuery(db, sqlStatement) {
 
     if (response.length) {
         const [{ columns, values }] = response;
-        return values.map((record) => zipObject(columns, record));
+
+        return values.map((record) =>
+            columns.reduce((o, f, index) => {
+                o[columns[index]] = record[index];
+                return o;
+            }, {})
+        );
     } else {
         return [];
     }
