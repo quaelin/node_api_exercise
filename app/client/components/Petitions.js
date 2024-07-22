@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { AppContext } from './store/AppContext.js';
+import { AppContext } from '../store/AppContext.js';
 import { Petition } from './Petition.js';
-import { useFetchPetitions } from './outbound/useFetchPetitions.js';
+import { useFetchPetitions } from '../outbound/useFetchPetitions.js';
 
 export function Petitions() {
     const { petitions } = useContext(AppContext);

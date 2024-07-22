@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { AppContext } from './store/AppContext.js';
-import { useFetchStats } from './outbound/useFetchStats.js';
+import { AppContext } from '../store/AppContext.js';
+import { useFetchStats } from '../outbound/useFetchStats.js';
 
 export function PetitionsStats() {
     const { petitionsCount } = useContext(AppContext);
